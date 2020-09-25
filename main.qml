@@ -27,7 +27,7 @@ ApplicationWindow {
 
     Menu { // dyn menu
         id: menu
-        MenuItem { // static part
+        MenuItem { // 0
             text: "Static Menu 1"
             onTriggered: infoLabel.text = text
         }
@@ -39,7 +39,7 @@ ApplicationWindow {
         }
         // js array.push does not cause instantiator to update objects...
         onAboutToShow: { instantiator.model = dynModel }
-        Instantiator { // dynamic part
+        Instantiator { // dynamic part - injected before position 2
             id: instantiator
             delegate: MenuItem {
                 text: modelData
